@@ -11,7 +11,7 @@ from mne.channels import read_montage
 from mne import create_info
 from mne import find_events, Epochs
 from mne.preprocessing import Xdawn
-from mne import compute_raw_data_covariance
+from mne import compute_raw_covariance
 
 from pyriemann.utils.covariance import _lwf
 from pyriemann.classification import MDM
@@ -61,7 +61,7 @@ def get_epochs_and_cov(X, y, window=500):
                     tmax=0.150, proj=False, picks=picks, baseline=None,
                     preload=True, add_eeg_ref=False, verbose=False)
 
-    cov_signal = compute_raw_data_covariance(raw_train, verbose=False)
+    cov_signal = compute_raw_covariance(raw_train, verbose=False)
     return epochs, cov_signal
 
 
